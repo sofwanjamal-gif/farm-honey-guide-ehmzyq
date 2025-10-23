@@ -15,6 +15,60 @@ export interface Product {
 export const products: Product[] = [
   {
     id: '1',
+    name: 'Royal Blend',
+    category: 'honey',
+    price: 8.500,
+    unit: 'KWD',
+    description: 'A premium mix of royal honey and natural bee pollen, known as "The King\'s Formula."',
+    details: 'Royal Blend is our signature premium honey product, combining the finest royal honey with natural bee pollen. This exceptional blend has been crafted to deliver maximum nutritional benefits and a rich, complex flavor profile. Known traditionally as "The King\'s Formula," this honey has been treasured for generations for its superior quality and health-promoting properties. Perfect for those seeking the very best in natural honey products.',
+    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784acc?w=800',
+    inStock: true,
+    features: [
+      'Premium Quality',
+      'Royal Honey & Bee Pollen',
+      'The King\'s Formula',
+      'Rich in Nutrients',
+      'Traditional Recipe'
+    ]
+  },
+  {
+    id: '2',
+    name: 'White Royal Honey',
+    category: 'honey',
+    price: 6.750,
+    unit: 'KWD',
+    description: '100% pure and natural royal white honey with a smooth, delicate flavor.',
+    details: 'Our White Royal Honey is a rare and exquisite variety, prized for its pure white color and exceptionally smooth texture. This 100% natural honey is harvested from specific floral sources that produce this unique white honey. With its delicate, refined flavor and creamy consistency, it offers a luxurious honey experience. Completely pure with no additives or processing, preserving all the natural enzymes and beneficial properties.',
+    image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800',
+    inStock: true,
+    features: [
+      '100% Pure & Natural',
+      'Smooth Texture',
+      'Delicate Flavor',
+      'Royal Quality',
+      'No Additives'
+    ]
+  },
+  {
+    id: '3',
+    name: 'Kids\' Honey',
+    category: 'honey',
+    price: 4.250,
+    unit: 'KWD',
+    description: 'Light and mild honey, perfect for children and daily use.',
+    details: 'Specially selected for its light, mild flavor, our Kids\' Honey is perfect for introducing children to the wonderful world of natural honey. This gentle honey variety is easy to digest and has a pleasant, not-too-sweet taste that children love. Ideal for daily use in breakfast cereals, on toast, or mixed into milk. Pure and natural, with all the health benefits of honey in a child-friendly format.',
+    image: 'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=800',
+    inStock: true,
+    features: [
+      'Mild & Light',
+      'Child-Friendly',
+      'Perfect for Daily Use',
+      'Easy to Digest',
+      'Natural Sweetness'
+    ]
+  },
+  {
+    id: '4',
     name: 'Wildflower Honey',
     category: 'honey',
     price: 12.99,
@@ -32,7 +86,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: '2',
+    id: '5',
     name: 'Acacia Honey',
     category: 'honey',
     price: 15.99,
@@ -50,7 +104,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: '3',
+    id: '6',
     name: 'Manuka Honey',
     category: 'honey',
     price: 34.99,
@@ -68,7 +122,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: '4',
+    id: '7',
     name: 'Fresh Eggs',
     category: 'farm',
     price: 6.99,
@@ -86,25 +140,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: '5',
-    name: 'Organic Tomatoes',
-    category: 'farm',
-    price: 4.99,
-    unit: 'per lb',
-    description: 'Vine-ripened heirloom tomatoes',
-    details: 'Heritage variety tomatoes grown using organic farming methods. Allowed to ripen fully on the vine for maximum flavor and nutrition. No pesticides or synthetic fertilizers used. Perfect for salads, sauces, or eating fresh.',
-    image: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800',
-    inStock: true,
-    features: [
-      'Heirloom Varieties',
-      'Vine-Ripened',
-      'No Pesticides',
-      'Full Flavor',
-      'Organic Certified'
-    ]
-  },
-  {
-    id: '6',
+    id: '8',
     name: 'Raw Honeycomb',
     category: 'honey',
     price: 18.99,
@@ -122,25 +158,7 @@ export const products: Product[] = [
     ]
   },
   {
-    id: '7',
-    name: 'Fresh Herbs Bundle',
-    category: 'farm',
-    price: 8.99,
-    unit: 'bundle',
-    description: 'Mixed fresh herbs from our garden',
-    details: 'A selection of fresh-cut herbs including basil, rosemary, thyme, and parsley. Grown without chemicals in our herb garden. Perfect for cooking, garnishing, or making herbal teas. Harvested the morning of delivery.',
-    image: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800',
-    inStock: true,
-    features: [
-      'Freshly Cut',
-      'Variety Pack',
-      'No Chemicals',
-      'Aromatic',
-      'Same-Day Harvest'
-    ]
-  },
-  {
-    id: '8',
+    id: '9',
     name: 'Lavender Honey',
     category: 'honey',
     price: 16.99,

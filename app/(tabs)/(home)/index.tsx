@@ -22,7 +22,7 @@ export default function HomeScreen() {
       {Platform.OS === 'ios' && (
         <Stack.Screen
           options={{
-            title: "Farm & Honey",
+            title: "Al-Thunayan Honey Farms",
             headerRight: renderHeaderRight,
             headerStyle: {
               backgroundColor: colors.background,
@@ -41,9 +41,9 @@ export default function HomeScreen() {
           showsVerticalScrollIndicator={false}
         >
           <View style={styles.heroSection}>
-            <Text style={styles.heroTitle}>Welcome to Our Farm</Text>
+            <Text style={styles.heroTitle}>Al-Thunayan Honey Farms</Text>
             <Text style={styles.heroSubtitle}>
-              Fresh organic products and pure honey from our family farm
+              Premium honey products and fresh farm goods from our family farm
             </Text>
           </View>
 
@@ -78,9 +78,8 @@ export default function HomeScreen() {
                       </Text>
                       <View style={styles.productFooter}>
                         <Text style={styles.productPrice}>
-                          ${product.price.toFixed(2)}
+                          {product.price.toFixed(3)} {product.unit}
                         </Text>
-                        <Text style={styles.productUnit}>{product.unit}</Text>
                       </View>
                     </View>
                   </Pressable>
@@ -89,47 +88,49 @@ export default function HomeScreen() {
             ))}
           </View>
 
-          <View style={styles.section}>
-            <View style={styles.sectionHeader}>
-              <IconSymbol name="leaf.fill" color={colors.primary} size={24} />
-              <Text style={styles.sectionTitle}>Fresh Farm Products</Text>
-            </View>
-            {farmProducts.map((product, index) => (
-              <Animated.View
-                key={product.id}
-                entering={FadeInDown.delay((honeyProducts.length + index) * 100).springify()}
-              >
-                <Link href={`/product/${product.id}` as any} asChild>
-                  <Pressable style={styles.productCard}>
-                    <Image
-                      source={{ uri: product.image }}
-                      style={styles.productImage}
-                      resizeMode="cover"
-                    />
-                    <View style={styles.productInfo}>
-                      <View style={styles.productHeader}>
-                        <Text style={styles.productName}>{product.name}</Text>
-                        {!product.inStock && (
-                          <View style={styles.outOfStockBadge}>
-                            <Text style={styles.outOfStockText}>Out of Stock</Text>
-                          </View>
-                        )}
-                      </View>
-                      <Text style={styles.productDescription} numberOfLines={2}>
-                        {product.description}
-                      </Text>
-                      <View style={styles.productFooter}>
-                        <Text style={styles.productPrice}>
-                          ${product.price.toFixed(2)}
+          {farmProducts.length > 0 && (
+            <View style={styles.section}>
+              <View style={styles.sectionHeader}>
+                <IconSymbol name="leaf.fill" color={colors.primary} size={24} />
+                <Text style={styles.sectionTitle}>Fresh Farm Products</Text>
+              </View>
+              {farmProducts.map((product, index) => (
+                <Animated.View
+                  key={product.id}
+                  entering={FadeInDown.delay((honeyProducts.length + index) * 100).springify()}
+                >
+                  <Link href={`/product/${product.id}` as any} asChild>
+                    <Pressable style={styles.productCard}>
+                      <Image
+                        source={{ uri: product.image }}
+                        style={styles.productImage}
+                        resizeMode="cover"
+                      />
+                      <View style={styles.productInfo}>
+                        <View style={styles.productHeader}>
+                          <Text style={styles.productName}>{product.name}</Text>
+                          {!product.inStock && (
+                            <View style={styles.outOfStockBadge}>
+                              <Text style={styles.outOfStockText}>Out of Stock</Text>
+                            </View>
+                          )}
+                        </View>
+                        <Text style={styles.productDescription} numberOfLines={2}>
+                          {product.description}
                         </Text>
-                        <Text style={styles.productUnit}>{product.unit}</Text>
+                        <View style={styles.productFooter}>
+                          <Text style={styles.productPrice}>
+                            ${product.price.toFixed(2)}
+                          </Text>
+                          <Text style={styles.productUnit}>{product.unit}</Text>
+                        </View>
                       </View>
-                    </View>
-                  </Pressable>
-                </Link>
-              </Animated.View>
-            ))}
-          </View>
+                    </Pressable>
+                  </Link>
+                </Animated.View>
+              ))}
+            </View>
+          )}
         </ScrollView>
       </View>
     </>
