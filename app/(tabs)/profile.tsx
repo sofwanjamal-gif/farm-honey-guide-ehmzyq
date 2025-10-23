@@ -7,13 +7,15 @@ import { colors } from "@/styles/commonStyles";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function ProfileScreen() {
-  const handleContact = (type: 'phone' | 'whatsapp' | 'instagram') => {
+  const handleContact = (type: 'phone' | 'whatsapp' | 'instagram' | 'email') => {
     if (type === 'phone') {
-      Linking.openURL('tel:+96596920615');
+      Linking.openURL('tel:+96560000000');
     } else if (type === 'whatsapp') {
-      Linking.openURL('https://wa.me/96596920615');
+      Linking.openURL('https://wa.me/96560000000');
     } else if (type === 'instagram') {
       Linking.openURL('https://instagram.com/lostup');
+    } else if (type === 'email') {
+      Linking.openURL('mailto:info@althunayanhoney.com');
     }
   };
 
@@ -34,8 +36,8 @@ export default function ProfileScreen() {
           <View style={styles.logoContainer}>
             <IconSymbol name="leaf.fill" size={60} color={colors.primary} />
           </View>
-          <Text style={styles.farmName}>Green Valley Farm</Text>
-          <Text style={styles.tagline}>Organic Products & Pure Honey</Text>
+          <Text style={styles.farmName}>Al-Thunayan Honey Farms</Text>
+          <Text style={styles.tagline}>Premium Natural Honey Products</Text>
         </Animated.View>
 
         <Animated.View
@@ -44,10 +46,10 @@ export default function ProfileScreen() {
         >
           <Text style={styles.sectionTitle}>About Our Farm</Text>
           <Text style={styles.aboutText}>
-            Welcome to Green Valley Farm, a family-owned organic farm dedicated to producing the highest quality honey and farm products. For over three generations, we&apos;ve been committed to sustainable farming practices and caring for our land and bees.
+            Al-Thunayan Honey Farms is a Kuwait-based honey producer offering premium natural honey products, including royal blends, white royal honey, and kids&apos; honey.
           </Text>
           <Text style={styles.aboutText}>
-            Our bees forage on pesticide-free wildflowers and organic crops, producing pure, raw honey that captures the essence of our beautiful valley. All our farm products are grown using organic methods, ensuring you get the freshest, healthiest food possible.
+            Located in the heart of Al-Wafra, we are dedicated to producing the finest quality honey using traditional methods combined with modern quality standards. Our commitment to excellence ensures that every jar of honey meets the highest standards of purity and taste.
           </Text>
         </Animated.View>
 
@@ -66,7 +68,21 @@ export default function ProfileScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Phone</Text>
-              <Text style={styles.contactValue}>+965 96920615</Text>
+              <Text style={styles.contactValue}>+965 6000 0000</Text>
+            </View>
+            <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
+          </Pressable>
+
+          <Pressable
+            style={styles.contactItem}
+            onPress={() => handleContact('email')}
+          >
+            <View style={styles.contactIcon}>
+              <IconSymbol name="envelope.fill" size={20} color={colors.primary} />
+            </View>
+            <View style={styles.contactInfo}>
+              <Text style={styles.contactLabel}>Email</Text>
+              <Text style={styles.contactValue}>info@althunayanhoney.com</Text>
             </View>
             <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
           </Pressable>
@@ -80,7 +96,7 @@ export default function ProfileScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>WhatsApp</Text>
-              <Text style={styles.contactValue}>+965 96920615</Text>
+              <Text style={styles.contactValue}>+965 6000 0000</Text>
             </View>
             <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
           </Pressable>
@@ -105,7 +121,7 @@ export default function ProfileScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Location</Text>
-              <Text style={styles.contactValue}>Kuwait</Text>
+              <Text style={styles.contactValue}>Al-Wafra, Kuwait</Text>
             </View>
           </View>
         </Animated.View>
@@ -114,19 +130,15 @@ export default function ProfileScreen() {
           entering={FadeInDown.delay(400).springify()}
           style={styles.section}
         >
-          <Text style={styles.sectionTitle}>Farm Hours</Text>
+          <Text style={styles.sectionTitle}>Business Hours</Text>
           <View style={styles.hoursContainer}>
             <View style={styles.hourRow}>
-              <Text style={styles.dayText}>Monday - Friday</Text>
+              <Text style={styles.dayText}>Saturday - Thursday</Text>
               <Text style={styles.timeText}>8:00 AM - 6:00 PM</Text>
             </View>
             <View style={styles.hourRow}>
-              <Text style={styles.dayText}>Saturday</Text>
-              <Text style={styles.timeText}>9:00 AM - 5:00 PM</Text>
-            </View>
-            <View style={styles.hourRow}>
-              <Text style={styles.dayText}>Sunday</Text>
-              <Text style={styles.timeText}>10:00 AM - 4:00 PM</Text>
+              <Text style={styles.dayText}>Friday</Text>
+              <Text style={styles.timeText}>Closed</Text>
             </View>
           </View>
         </Animated.View>
@@ -136,9 +148,9 @@ export default function ProfileScreen() {
           style={styles.certificationSection}
         >
           <IconSymbol name="checkmark.seal.fill" size={40} color={colors.primary} />
-          <Text style={styles.certificationTitle}>Certified Organic</Text>
+          <Text style={styles.certificationTitle}>Premium Quality</Text>
           <Text style={styles.certificationText}>
-            USDA Organic Certified • Non-GMO • Pesticide-Free
+            100% Natural • Pure Honey • Kuwait Produced
           </Text>
         </Animated.View>
 
@@ -186,10 +198,12 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     color: colors.text,
     marginBottom: 4,
+    textAlign: 'center',
   },
   tagline: {
     fontSize: 16,
     color: colors.textSecondary,
+    textAlign: 'center',
   },
   section: {
     marginBottom: 32,
