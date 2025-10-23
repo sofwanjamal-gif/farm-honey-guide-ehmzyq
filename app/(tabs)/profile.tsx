@@ -7,11 +7,13 @@ import { colors } from "@/styles/commonStyles";
 import Animated, { FadeInDown } from "react-native-reanimated";
 
 export default function ProfileScreen() {
-  const handleContact = (type: 'phone' | 'email') => {
+  const handleContact = (type: 'phone' | 'whatsapp' | 'instagram') => {
     if (type === 'phone') {
-      Linking.openURL('tel:+15551234567');
-    } else {
-      Linking.openURL('mailto:info@farmhoney.com');
+      Linking.openURL('tel:+96596920615');
+    } else if (type === 'whatsapp') {
+      Linking.openURL('https://wa.me/96596920615');
+    } else if (type === 'instagram') {
+      Linking.openURL('https://instagram.com/lostup');
     }
   };
 
@@ -54,6 +56,7 @@ export default function ProfileScreen() {
           style={styles.section}
         >
           <Text style={styles.sectionTitle}>Contact Us</Text>
+          
           <Pressable
             style={styles.contactItem}
             onPress={() => handleContact('phone')}
@@ -63,21 +66,35 @@ export default function ProfileScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Phone</Text>
-              <Text style={styles.contactValue}>+1 (555) 123-4567</Text>
+              <Text style={styles.contactValue}>+965 96920615</Text>
             </View>
             <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
           </Pressable>
 
           <Pressable
             style={styles.contactItem}
-            onPress={() => handleContact('email')}
+            onPress={() => handleContact('whatsapp')}
           >
-            <View style={styles.contactIcon}>
-              <IconSymbol name="envelope.fill" size={20} color={colors.primary} />
+            <View style={[styles.contactIcon, { backgroundColor: '#25D366' }]}>
+              <IconSymbol name="message.fill" size={20} color="#FFFFFF" />
             </View>
             <View style={styles.contactInfo}>
-              <Text style={styles.contactLabel}>Email</Text>
-              <Text style={styles.contactValue}>info@farmhoney.com</Text>
+              <Text style={styles.contactLabel}>WhatsApp</Text>
+              <Text style={styles.contactValue}>+965 96920615</Text>
+            </View>
+            <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
+          </Pressable>
+
+          <Pressable
+            style={styles.contactItem}
+            onPress={() => handleContact('instagram')}
+          >
+            <View style={[styles.contactIcon, { backgroundColor: '#E4405F' }]}>
+              <IconSymbol name="camera.fill" size={20} color="#FFFFFF" />
+            </View>
+            <View style={styles.contactInfo}>
+              <Text style={styles.contactLabel}>Instagram</Text>
+              <Text style={styles.contactValue}>@lostup</Text>
             </View>
             <IconSymbol name="chevron.right" size={20} color={colors.textSecondary} />
           </Pressable>
@@ -88,7 +105,7 @@ export default function ProfileScreen() {
             </View>
             <View style={styles.contactInfo}>
               <Text style={styles.contactLabel}>Location</Text>
-              <Text style={styles.contactValue}>Green Valley, CA 95945</Text>
+              <Text style={styles.contactValue}>Kuwait</Text>
             </View>
           </View>
         </Animated.View>
@@ -123,6 +140,14 @@ export default function ProfileScreen() {
           <Text style={styles.certificationText}>
             USDA Organic Certified • Non-GMO • Pesticide-Free
           </Text>
+        </Animated.View>
+
+        <Animated.View
+          entering={FadeInDown.delay(600).springify()}
+          style={styles.developerSection}
+        >
+          <Text style={styles.developerLabel}>Developed by</Text>
+          <Text style={styles.developerName}>Moayed Abd Algader</Text>
         </Animated.View>
       </ScrollView>
     </SafeAreaView>
@@ -244,6 +269,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: colors.primary,
     marginTop: 8,
+    marginBottom: 32,
   },
   certificationTitle: {
     fontSize: 20,
@@ -256,5 +282,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: colors.textSecondary,
     textAlign: 'center',
+  },
+  developerSection: {
+    alignItems: 'center',
+    paddingVertical: 20,
+    borderTopWidth: 1,
+    borderTopColor: colors.secondary,
+  },
+  developerLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    marginBottom: 4,
+  },
+  developerName: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: colors.text,
   },
 });
